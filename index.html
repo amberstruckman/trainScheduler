@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Train Scheduler</title>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-database.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />      
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+</head>
+<body>
+        
+          
+        
+        <body>
+        
+          <!-- Main Bootstrap Search -->
+          <div class="container">
+        
+            <!-- Jumbotron for Title -->
+            <div class="jumbotron" style="background-color: #20315A ; color: white;">
+              <h1 class="text-center">
+                <strong>
+                  <i class="fa fa-newspaper-o"></i>Train Time</strong>
+              </h1>
+              <h2 class="text-center">Choo Choo</h2>
+            </div>
+
+            <!--table of train data-->
+            <table class="table table-striped">
+                    <thead>
+                        <p>Current Train Schedule</p>
+                      <tr>
+                        <th scope="col">Train Name</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Frequency (min)</th>
+                        <th scope="col">Next Arrival</th>
+                        <th scope="col">Minutes Away</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>    
+        
+            <!-- Row for Employee info -->
+            <div class="row">
+              <div class="col-sm-12">
+                <br>
+                <!-- First card is for handling the search parameters -->
+                <div class="card">
+                  <div class="card-header">
+                    <strong>
+                  </div>
+                  <div class="card-body">
+        
+                    <!-- Here we create an HTML Form for handling the inputs-->
+                    <form role="form">
+        
+                      <!-- Here we create the text box for capturing the trains-->
+                      <div class="form-group">
+                        <label for="name">Train Name</label>
+                        <input type="text" class="form-control" id="train-name">
+                      </div>
+        
+                      <!-- Here we capture the Destination-->
+                      <div class="form-group">
+                        <label for="role">Destination</label>
+                        <input type="text" class="form-control" id="destination-name">
+                      </div>
+        
+                      <!-- Here we capture the first train time -->
+                      <div class="form-group">
+                        <label for="firstTrain">First Train Time (HH:mm military time)</label>
+                        <input type="text" class="form-control" id="firstTrain-time">
+                      </div>
+        
+                    <!-- Here we capture the train Frequency -->
+                        <div class="form-group">
+                            <label for="rate">Frequency</label>
+                            <input type="text" class="form-control" id="frequency-rate">
+                        </div>
+        
+                      <!-- Here we have our final submit button -->
+                      <button type="submit" class="btn btn-default" id="submit">
+                        <i class="fa fa-search"></i> Submit</button>
+        
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+           
+            
+            <!-- Footer Region -->
+            <div class="row">
+              <div class="col-sm-12">
+        
+              </div>
+            </div>
+        
+          </div>
+        
+        <script src="assets/javascript/app.js"></script>
+</body>
+</html>
