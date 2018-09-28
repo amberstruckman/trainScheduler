@@ -1,7 +1,7 @@
 var config = {
   apiKey: "AIzaSyBeaAiqvni8hoYvOc8Y7j-6x2IItULbm18",
   authDomain: "trainschedulerhw-cae91.firebaseapp.com",
-  databaseURL: "https://trainschedulerhw-cae91.firebaseio.com",
+  databaseURL: "https://trainschedulerhw-cae91.firebaseio.com/",
   projectId: "trainschedulerhw-cae91",
   storageBucket: "trainschedulerhw-cae91.appspot.com",
   messagingSenderId: "938859772299"
@@ -32,6 +32,9 @@ var frequency = 0;
     frequency = $("#frequency-rate").val().trim();
     console.log("Frequency: " + frequency);
 
+    var firstTimeConverted = moment(firstTrainTime, "HH:mm").subtract(1, "years");
+    console.log(firstTimeConverted);
+
     //the math for the other values pushed to the database
     var currentTime = moment();
     console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
@@ -41,11 +44,11 @@ var frequency = 0;
     console.log("DIFFERENCE IN TIME: " + diffTime);
 
     // Time apart (remainder)
-    var tRemainder = diffTime % tFrequency;
+    var tRemainder = diffTime % frequency;
     console.log(tRemainder);
 
     // Minute Until Train
-    var tMinutesTillTrain = tFrequency - tRemainder;
+    var tMinutesTillTrain = frequency - tRemainder;
     console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 
     // Next Train
@@ -53,15 +56,24 @@ var frequency = 0;
     console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
     firebase.database().ref().push({
-            name : name,
-            destination : destination,
-            firstTrainTime : firstTrainTime,
-            frequency : frequency,
-            nextTrainTime: nextTrain,
-            tMinutesTillTrain: tMinutesTillTrain
+      name: name,
+      destination: destination,
+      firstTrainTime: firstTrainTime,
+      frequency: frequency,
+      nextTrainTime: nextTrain,
+      tMinutesTillTrain: tMinutesTillTrain
+    });
+    
+    //firebase.database().ref().push({
+            //name: name,
+        //     destination : destination,
+        //     firstTrainTime : firstTrainTime,
+        //     frequency : frequency,
+        //     nextTrainTime: nextTrain,
+        //     tMinutesTillTrain: tMinutesTillTrain
 
             
-        });
+        // });
     })
 
 
